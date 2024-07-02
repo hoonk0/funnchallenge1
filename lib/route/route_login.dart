@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:funnchallenge/login/join_new_member.dart';
 import 'package:funnchallenge/login/no_member.dart';
 import 'package:funnchallenge/screen/user_information.dart';
+import 'package:sizer/sizer.dart';
 
 
 import '../../const/value/colors.dart';
@@ -18,11 +19,14 @@ class _RouteLoginState extends State<RouteLogin> {
   final TextEditingController tecId = TextEditingController();
   final TextEditingController tecPw = TextEditingController();
   final TextEditingController tecName = TextEditingController();
-  final TextEditingController tecYear = TextEditingController();
-  final TextEditingController tecMonth = TextEditingController();
-  final TextEditingController tecDay = TextEditingController();
-  String selectedMonth = '1'; // 초기 값은 1월로 설정
-  String selectedDay = '1'; // 초기 값은 1일로 설정
+
+  String? selectedYear;
+  String? selectedMonth;
+  String? selectedDay;
+
+  List<String> years = List.generate(50, (index) => (2024 - index).toString());
+  List<String> months = List.generate(12, (index) => (index + 1).toString().padLeft(2, '0'));
+  List<String> days = List.generate(31, (index) => (index + 1).toString().padLeft(2, '0'));
 
   @override
   void initState() {
@@ -34,9 +38,7 @@ class _RouteLoginState extends State<RouteLogin> {
     tecId.dispose();
     tecPw.dispose();
     tecName.dispose();
-    tecYear.dispose();
-    tecMonth.dispose();
-    tecDay.dispose();
+
     super.dispose();
   }
 
@@ -577,77 +579,108 @@ class _RouteLoginState extends State<RouteLogin> {
 
                                               const SizedBox(height: 20),
 
-
-                                              /*
                                               Row(
                                                 children: [
-                                                  Text(
-                                                    '생년월일',
-                                                    style: TextStyle(
-                                                        fontSize: 12,
-                                                        fontWeight:
-                                                            FontWeight.w700,
-                                                        color: Colors.white),
+                                                  SizedBox(
+                                                    width: 15.w,
+                                                    child: const Text(
+                                                      '생년월일',
+                                                      style: TS.s12w700(colorWhite),
+                                                    ),
                                                   ),
-                                                  SizedBox(width: 13),
 
                                                   Expanded(
-                                                    child:
-                                                        DropdownButtonFormField<
-                                                            String>(
-                                                      value: selectedMonth,
-                                                      onChanged: (String? value) {
-                                                        selectedMonth = value!;
-                                                        // 선택한 월에 따라 일 수 동적으로 업데이트하는 로직 추가 가능
-                                                        setState(() {});
-                                                      },
-                                                      items: List.generate(
-                                                              12,
-                                                              (index) =>
-                                                                  (index + 1)
-                                                                      .toString())
-                                                          .map((String value) =>
-                                                              DropdownMenuItem<
-                                                                  String>(
-                                                                value: value,
-                                                                child: Text(
-                                                                  value,
-                                                                  style: TextStyle(
-                                                                      fontSize:
-                                                                          12,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .w400,
-                                                                      color: Colors
-                                                                          .black),
-                                                                ),
-                                                              ))
-                                                          .toList(),
+                                                    child: Container(
+                                                      decoration: BoxDecoration(
+                                                        border: Border.all(color: Colors.white),
+                                                        borderRadius: BorderRadius.circular(10.0),
+
+                                                      ),
+                                                      child: DropdownButton<String>(
+                                                        value: years.contains(selectedYear) ? selectedYear : null,
+                                                        hint: const Text('  연도', style: TS.s10w400(colorWhite)),
+                                                        isExpanded: true,
+                                                        items: years.map((String value) {
+                                                          return DropdownMenuItem<String>(
+                                                            value: value,
+                                                            child: Padding(
+                                                              padding: const EdgeInsets.all(1.0),
+                                                              child: Text(value, style: const TS.s10w400(colorWhite)),
+                                                            ),
+                                                          );
+                                                        }).toList(),
+                                                        onChanged: (newValue) {
+                                                          setState(() {
+                                                            selectedYear = newValue;
+                                                          });
+                                                        },
+                                                        dropdownColor: Colors.grey[800], // 드롭다운 배경 색상
+                                                      ),
                                                     ),
                                                   ),
-                                                  SizedBox(width: 10),
+                                                  const SizedBox(width: 8),
                                                   Expanded(
-                                                    child: DropdownButtonFormField<String>(
-                                                      value: selectedMonth,
-                                                      onChanged: (String? value) {
-                                                        selectedMonth = value!;
-                                                        setState(() {});
-                                                      },
-                                                      items: List.generate(12, (index) => (index + 1).toString())
-                                                          .map((String value) => DropdownMenuItem<String>(
-                                                        value: value,
-                                                        child: Text(
-                                                          value,
-                                                          style: TextStyle(fontSize: 12, fontWeight: FontWeight.w400, color: Colors.black),
-                                                        ),
-                                                      ))
-                                                          .toList(),
+                                                    child: Container(
+                                                      decoration: BoxDecoration(
+                                                        border: Border.all(color: Colors.white),
+                                                        borderRadius: BorderRadius.circular(10.0),
+                                                      ),
+                                                      child: DropdownButton<String>(
+                                                        value: selectedMonth,
+                                                        hint: const Text('  월', style: TS.s10w400(colorWhite)),
+                                                        isExpanded: true,
+                                                        items: months.map((String value) {
+                                                          return DropdownMenuItem<String>(
+                                                            value: value,
+                                                            child: Padding(
+                                                              padding: const EdgeInsets.all(6.0),
+                                                              child: Text(value, style: const TS.s10w400(colorWhite)),
+                                                            ),
+                                                          );
+                                                        }).toList(),
+                                                        onChanged: (newValue) {
+                                                          setState(() {
+                                                            selectedMonth = newValue;
+                                                          });
+                                                        },
+                                                        dropdownColor: Colors.grey[800], // 드롭다운 배경 색상
+                                                      ),
                                                     ),
                                                   ),
+                                                  const SizedBox(width: 8),
+                                                  Expanded(
+                                                    child: Container(
+                                                      decoration: BoxDecoration(
+                                                        border: Border.all(color: Colors.white),
+                                                        borderRadius: BorderRadius.circular(10.0),
+
+                                                      ),
+                                                      child: DropdownButton<String>(
+                                                        value: days.contains(selectedDay) ? selectedDay : null,
+                                                        hint: const Text('  일', style: TS.s10w400(colorWhite)),
+                                                        isExpanded: true,
+                                                        items: days.map((String value) {
+                                                          return DropdownMenuItem<String>(
+                                                            value: value,
+                                                            child: Padding(
+                                                              padding: const EdgeInsets.all(6.0),
+                                                              child: Text(value, style: const TS.s12w400(colorWhite)),
+                                                            ),
+                                                          );
+                                                        }).toList(),
+                                                        onChanged: (newValue) {
+                                                          setState(() {
+                                                            selectedDay = newValue;
+                                                          });
+                                                        },
+                                                        dropdownColor: Colors.grey[800], // 드롭다운 배경 색상
+                                                      ),
+                                                    ),
+                                                  ),
+
 
                                                 ],
                                               ),
-                                              */
 
 
                                             ],
@@ -871,7 +904,7 @@ class _RouteLoginState extends State<RouteLogin> {
                                               ),
                                               const SizedBox(height: 42), // 'width'를 'height'로 수정
 
-                                              Column(
+                                              const Column(
                                                 crossAxisAlignment: CrossAxisAlignment.center,
                                                 children: [
 
@@ -984,7 +1017,7 @@ class _RouteLoginState extends State<RouteLogin> {
                                                                     ),
                                                                     const SizedBox(height: 42), // 'width'를 'height'로 수정
 
-                                                                    Column(
+                                                                    const Column(
                                                                       crossAxisAlignment: CrossAxisAlignment.center,
                                                                       children: [
 
@@ -1013,7 +1046,7 @@ class _RouteLoginState extends State<RouteLogin> {
                                                                               ),
                                                                             ),
                                                                             onPressed: () {
-                                                                              Navigator.of(context).push(MaterialPageRoute(builder: (context) => NoMember()));
+                                                                              Navigator.of(context).push(MaterialPageRoute(builder: (context) => const NoMember()));
                                                                             },
                                                                             child: const Text(
                                                                               '다음',

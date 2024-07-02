@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:funnchallenge/route/route_main.dart';
 import 'package:funnchallenge/tab/about_tab.dart';
 import 'package:funnchallenge/tab/home_tab.dart';
 import 'package:funnchallenge/tab/league_tab.dart';
-import 'package:sizer/sizer.dart';
 
 import '../const/value/colors.dart';
-import '../const/value/text_style.dart';
 import '../screen/user_information.dart';
 
 class RouteMain extends StatefulWidget {
@@ -55,12 +52,12 @@ class _RegisterUnder14State extends State<RouteMain> {
         valueListenable: vnTabIndex,
         builder: (context, index, child) {
           if (index == 0) {
-            return HomeTab();
+            return const HomeTab();
           }
           if (index == 1) {
-            return AboutTab();
+            return const AboutTab();
           }
-          return LeagueTab();
+          return const LeagueTab();
         },
       ),
       bottomNavigationBar: Row(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:funnchallenge/route/route_login.dart';
 import 'package:sizer/sizer.dart';
 
 import '../const/value/colors.dart';
@@ -36,7 +37,6 @@ class _RegisterUnder14State extends State<RegisterUnder14> {
   String gender = '남';
   String genderLegal = '남';
 
-
   @override
   void dispose() {
     tecEmailId.dispose();
@@ -47,6 +47,79 @@ class _RegisterUnder14State extends State<RegisterUnder14> {
     tecEmail.dispose();
     tecPhone.dispose();
     super.dispose();
+  }
+
+  void _register() {
+    if (tecEmailId.text.isNotEmpty &&
+        tecPw.text.isNotEmpty &&
+        tecPwAgain.text.isNotEmpty &&
+        tecName.text.isNotEmpty &&
+        selectedYear != null &&
+        selectedMonth != null &&
+        selectedDay != null &&
+        tecLegalName.text.isNotEmpty &&
+        tecEmail.text.isNotEmpty &&
+        selectedYearLegal != null &&
+        selectedMonthLegal != null &&
+        selectedDayLegal != null) {
+      _showDialog('회원가입이 완료되었습니다', success: true);
+    } else {
+      _showDialog('항목을 모두 입력해주세요');
+    }
+  }
+
+  void _showDialog(String message, {bool success = false}) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          backgroundColor: Colors.black,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20.0),
+          ),
+          content: SizedBox(
+            height: 100,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  message,
+                  style: TS.s14w700(colorWhite),
+                ),
+                const SizedBox(height: 20),
+                Row(
+                  children: [
+                    Expanded(
+                      child: ElevatedButton(
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                          if (success) {
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(builder: (context) => const RouteLogin()),
+                            );
+                          }
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: const Color(0xffE41745),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
+                        child: const Text(
+                          '확인',
+                          style: TS.s14w700(colorWhite),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
   }
 
   @override
@@ -92,9 +165,9 @@ class _RegisterUnder14State extends State<RegisterUnder14> {
                   style: TS.s16w700(colorWhite),
                 ),
               ),
-        
+
               const SizedBox(height: 18),
-        
+
               Row(
                 children: [
                   SizedBox(
@@ -104,9 +177,9 @@ class _RegisterUnder14State extends State<RegisterUnder14> {
                       style: TS.s12w700(colorWhite),
                     ),
                   ),
-        
+
                   const SizedBox(width: 20,),
-        
+
                   Expanded(
                     child: TextField(
                       controller: tecEmailId,
@@ -129,9 +202,9 @@ class _RegisterUnder14State extends State<RegisterUnder14> {
                   ),
                 ],
               ),
-        
+
               const SizedBox(height: 8),
-        
+
               Row(
                 children: [
                   SizedBox(
@@ -141,9 +214,9 @@ class _RegisterUnder14State extends State<RegisterUnder14> {
                       style: TS.s12w700(colorWhite),
                     ),
                   ),
-        
+
                   const SizedBox(width: 20,),
-        
+
                   Expanded(
                     child: TextField(
                       controller: tecPw,
@@ -166,9 +239,9 @@ class _RegisterUnder14State extends State<RegisterUnder14> {
                   ),
                 ],
               ),
-        
+
               const SizedBox(height: 8),
-        
+
               Row(
                 children: [
                   SizedBox(
@@ -178,9 +251,9 @@ class _RegisterUnder14State extends State<RegisterUnder14> {
                       style: TS.s12w700(colorWhite),
                     ),
                   ),
-        
+
                   const SizedBox(width: 20,),
-        
+
                   Expanded(
                     child: TextField(
                       controller: tecPwAgain,
@@ -203,9 +276,9 @@ class _RegisterUnder14State extends State<RegisterUnder14> {
                   ),
                 ],
               ),
-        
+
               const SizedBox(height: 8),
-        
+
               Row(
                 children: [
                   SizedBox(
@@ -215,9 +288,9 @@ class _RegisterUnder14State extends State<RegisterUnder14> {
                       style: TS.s12w700(colorWhite),
                     ),
                   ),
-        
+
                   const SizedBox(width: 20,),
-        
+
                   Expanded(
                     child: TextField(
                       controller: tecName,
@@ -240,7 +313,7 @@ class _RegisterUnder14State extends State<RegisterUnder14> {
                   ),
                 ],
               ),
-        
+
               const SizedBox(height: 8),
 
               Row(
@@ -369,11 +442,11 @@ class _RegisterUnder14State extends State<RegisterUnder14> {
                   ),
                 ],
               ),
-        
+
               const SizedBox(width: 24),
-        
+
               const Divider(color: Colors.grey),
-        
+
               const Center(
                 child: Text(
                   '고객님은 만 14세 미만 청소년으로 개인정보보호법 제39조의 3에 의거하',
@@ -386,18 +459,18 @@ class _RegisterUnder14State extends State<RegisterUnder14> {
                   style: TS.s10w600(colorWhite),
                 ),
               ),
-        
+
               const SizedBox(height: 4),
-        
+
               const Center(
                 child: Text(
                   '법정대리인 정보',
                   style: TS.s16w700(colorWhite),
                 ),
               ),
-        
+
               const SizedBox(height: 10),
-        
+
               Row(
                 children: [
                   SizedBox(
@@ -407,9 +480,9 @@ class _RegisterUnder14State extends State<RegisterUnder14> {
                       style: TS.s12w700(colorWhite),
                     ),
                   ),
-        
+
                   const SizedBox(width: 20,),
-        
+
                   Expanded(
                     child: TextField(
                       controller: tecLegalName,
@@ -432,9 +505,9 @@ class _RegisterUnder14State extends State<RegisterUnder14> {
                   ),
                 ],
               ),
-        
+
               const SizedBox(height: 12),
-        
+
               Row(
                 children: [
                   SizedBox(
@@ -444,9 +517,9 @@ class _RegisterUnder14State extends State<RegisterUnder14> {
                       style: TS.s12w700(colorWhite),
                     ),
                   ),
-        
+
                   const SizedBox(width: 20,),
-        
+
                   Expanded(
                     child: TextField(
                       controller: tecEmail,
@@ -761,7 +834,6 @@ class _RegisterUnder14State extends State<RegisterUnder14> {
                 ],
               ),
 
-
               const SizedBox(height: 38,),
 
               Row(
@@ -770,28 +842,29 @@ class _RegisterUnder14State extends State<RegisterUnder14> {
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 25),
                       child: ElevatedButton(
-                        onPressed: () {
-
-                        },
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0xffE41745),
-                          fixedSize: const Size(300, 40),
-                          shape: const RoundedRectangleBorder(
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(10),
-                            ),
-                          ),
+                            foregroundColor: Colors.white,
+                            backgroundColor: const Color(0xffE41745),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            )
                         ),
+
+                        onPressed: _register,
+
                         child: const Text(
                             '가입하기',
                             style: TS.s14w700(colorWhite)
                         ),
+
+
+
                       ),
                     ),
                   ),
                 ],
               ),
-        
+
             ],
           ),
         ),
