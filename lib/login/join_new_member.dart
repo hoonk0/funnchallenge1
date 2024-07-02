@@ -33,7 +33,7 @@ class JoinNewMember extends StatelessWidget {
                 icon: const Icon(Icons.menu),
                 color: colorWhite,
               ),
-              SizedBox(width: 30)
+              const SizedBox(width: 30)
             ],
           ),
         ],
@@ -43,21 +43,21 @@ class JoinNewMember extends StatelessWidget {
       body: Center(
         child: Column(
           children: [
-            SizedBox(height: 204),
+            const SizedBox(height: 204),
 
-            Text(
+            const Text(
               '회원가입',
               style: TS.s24w900(colorWhite),
             ),
 
-            SizedBox(height: 11,),
+            const SizedBox(height: 11,),
 
-            Text(
+            const Text(
               '펀앤챌린지(Fun&Challenge)에 오신 것을 환영합니다',
               style: TS.s10w600(colorWhite),
             ),
 
-            SizedBox(height: 150),
+            const SizedBox(height: 150),
             //need to add logo
 
             Row(
@@ -76,57 +76,57 @@ class JoinNewMember extends StatelessWidget {
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(20.0),
                               ),
-                              content: Container(
+                              content: SizedBox(
                                 height: 550,
                                 child: Column(
                                   mainAxisSize: MainAxisSize.min,
                                   crossAxisAlignment: CrossAxisAlignment.start, // 텍스트 왼쪽 정렬
                                   children: [
-                                    SizedBox(height: 49),
-                                    Text(
+                                    const SizedBox(height: 49),
+                                    const Text(
                                       '이용약관',
                                       style: TS.s16w700(colorWhite),
                                     ),
-                                    SizedBox(height: 42), // 'width'를 'height'로 수정
+                                    const SizedBox(height: 42), // 'width'를 'height'로 수정
                                     Row(
                                       children: [
                                         Checkbox(value: false, onChanged: (value) {}), // 체크박스 추가
-                                        Text(
+                                        const Text(
                                           '이용약관(필수)',
                                           style: TS.s12w700(colorWhite),
                                         ),
                                       ],
                                     ),
-                                    SizedBox(height: 19),
+                                    const SizedBox(height: 19),
                                     Row(
                                       children: [
                                         Checkbox(value: false, onChanged: (value) {}), // 체크박스 추가
-                                        Text(
+                                        const Text(
                                           '개인정보처리방침(필수)',
                                           style: TS.s12w700(colorWhite),
                                         ),
                                       ],
                                     ),
-                                    SizedBox(height: 19),
+                                    const SizedBox(height: 19),
                                     Row(
                                       children: [
                                         Checkbox(value: false, onChanged: (value) {}), // 체크박스 추가
-                                        Text(
+                                        const Text(
                                           '이벤트/혜택 알림 수신 동의(선택)',
                                           style: TS.s12w700(colorWhite),
                                         ),
                                       ],
                                     ),
-                                    SizedBox(height: 31),
+                                    const SizedBox(height: 31),
 
-                                    Divider(color: Colors.grey),
+                                    const Divider(color: Colors.grey),
                                     // 가로선 추가
-                                    SizedBox(height: 31),
+                                    const SizedBox(height: 31),
 
                                     Row(
                                       children: [
                                         Checkbox(value: false, onChanged: (value) {}), // 체크박스 추가
-                                        Column(
+                                        const Column(
                                           crossAxisAlignment: CrossAxisAlignment.start,
                                           children: [
                                             Text(
@@ -141,18 +141,14 @@ class JoinNewMember extends StatelessWidget {
                                         ),
                                       ],
                                     ),
-                                    SizedBox(height: 34),
+                                    const SizedBox(height: 34),
                                     Row(
                                       children: [
                                         Expanded(
                                           child: ElevatedButton(
-                                            child: Text(
-                                              '다음',
-                                              style: TS.s14w700(colorWhite),
-                                            ),
                                             style: ElevatedButton.styleFrom(
                                               foregroundColor: Colors.white,
-                                              backgroundColor: Color(0xffE41745),
+                                              backgroundColor: const Color(0xffE41745),
                                               shape: RoundedRectangleBorder(
                                                 borderRadius: BorderRadius.circular(10),
                                               ),
@@ -169,19 +165,19 @@ class JoinNewMember extends StatelessWidget {
                                                     shape: RoundedRectangleBorder(
                                                       borderRadius: BorderRadius.circular(20.0),
                                                     ),
-                                                    content: Container(
+                                                    content: SizedBox(
                                                       height: 310,
                                                       child: Column(
                                                         mainAxisSize: MainAxisSize.min,
                                                         crossAxisAlignment: CrossAxisAlignment.center, // 텍스트 왼쪽 정렬
                                                         children: [
-                                                          SizedBox(height: 49),
-                                                          Text(
+                                                          const SizedBox(height: 49),
+                                                          const Text(
                                                             '이멘트 / 혜택 알림 수신 동의',
                                                             style: TS.s16w700(colorWhite),
                                                           ),
-                                                          SizedBox(height: 17), // 'width'를 'height'로 수정
-                                                          Center(
+                                                          const SizedBox(height: 17), // 'width'를 'height'로 수정
+                                                          const Center(
                                                             child: Text(
                                                               '펀앤챌린지(Fun&Challenge)에서는 고객이 수집 및\n'
                                                                   '이용에 동의한 개인정보를 활용하여 전자적 전송매체\n'
@@ -193,19 +189,15 @@ class JoinNewMember extends StatelessWidget {
                                                             ),
                                                           ),
 
-                                                          SizedBox(height: 34),
+                                                          const SizedBox(height: 34),
 
                                                           Row(
                                                             children: [
                                                               Expanded(
                                                                 child: ElevatedButton(
-                                                                  child: Text(
-                                                                    '다음',
-                                                                    style: TS.s14w700(colorWhite),
-                                                                  ),
                                                                   style: ElevatedButton.styleFrom(
                                                                     foregroundColor: Colors.white,
-                                                                    backgroundColor: Color(0xffE41745),
+                                                                    backgroundColor: const Color(0xffE41745),
                                                                     shape: RoundedRectangleBorder(
                                                                       borderRadius: BorderRadius.circular(10),
                                                                     ),
@@ -222,31 +214,27 @@ class JoinNewMember extends StatelessWidget {
                                                                           shape: RoundedRectangleBorder(
                                                                             borderRadius: BorderRadius.circular(20.0),
                                                                           ),
-                                                                          content: Container(
+                                                                          content: SizedBox(
                                                                             height: 170,
                                                                             child: Column(
                                                                               mainAxisSize: MainAxisSize.min,
                                                                               crossAxisAlignment: CrossAxisAlignment.center, // 텍스트 왼쪽 정렬
                                                                               children: [
-                                                                                SizedBox(height: 49),
-                                                                                Text(
+                                                                                const SizedBox(height: 49),
+                                                                                const Text(
                                                                                   '고객님의 연령대를 선택해주세요',
                                                                                   style: TS.s14w700(colorWhite),
                                                                                 ),
 
-                                                                                SizedBox(height: 34), // 'width'를 'height'로 수정
+                                                                                const SizedBox(height: 34), // 'width'를 'height'로 수정
 
                                                                                 Row(
                                                                                   children: [
                                                                                     Expanded(
                                                                                       child: ElevatedButton(
-                                                                                        child: Text(
-                                                                                          '만 14세 미만',
-                                                                                          style: TS.s14w700(colorWhite),
-                                                                                        ),
                                                                                         style: ElevatedButton.styleFrom(
                                                                                           foregroundColor: Colors.white,
-                                                                                          backgroundColor: Color(0xff535353),
+                                                                                          backgroundColor: const Color(0xff535353),
                                                                                           shape: RoundedRectangleBorder(
                                                                                             borderRadius: BorderRadius.circular(10),
                                                                                           ),
@@ -257,20 +245,20 @@ class JoinNewMember extends StatelessWidget {
                                                                                             MaterialPageRoute(builder: (context) => RegisterUnder14()),
                                                                                           );
                                                                                         },
+                                                                                        child: const Text(
+                                                                                          '만 14세 미만',
+                                                                                          style: TS.s14w700(colorWhite),
+                                                                                        ),
                                                                                       ),
                                                                                     ),
 
-                                                                                    SizedBox(width: 15),
+                                                                                    const SizedBox(width: 15),
 
                                                                                     Expanded(
                                                                                       child: ElevatedButton(
-                                                                                        child: Text(
-                                                                                          '만 14세 이상',
-                                                                                          style: TS.s14w700(colorWhite),
-                                                                                        ),
                                                                                         style: ElevatedButton.styleFrom(
                                                                                             foregroundColor: Colors.white,
-                                                                                            backgroundColor: Color(0xffE41745),
+                                                                                            backgroundColor: const Color(0xffE41745),
                                                                                             shape: RoundedRectangleBorder(
                                                                                               borderRadius: BorderRadius.circular(10),
                                                                                             )
@@ -281,6 +269,10 @@ class JoinNewMember extends StatelessWidget {
                                                                                             MaterialPageRoute(builder: (context) => const RegisterUp14()),
                                                                                           );
                                                                                         },
+                                                                                        child: const Text(
+                                                                                          '만 14세 이상',
+                                                                                          style: TS.s14w700(colorWhite),
+                                                                                        ),
                                                                                       ),
                                                                                     ),
 
@@ -296,6 +288,10 @@ class JoinNewMember extends StatelessWidget {
 
 
                                                                   },
+                                                                  child: const Text(
+                                                                    '다음',
+                                                                    style: TS.s14w700(colorWhite),
+                                                                  ),
                                                                 ),
                                                               ),
                                                             ],
@@ -309,6 +305,10 @@ class JoinNewMember extends StatelessWidget {
 
 
                                             },
+                                            child: const Text(
+                                              '다음',
+                                              style: TS.s14w700(colorWhite),
+                                            ),
                                           ),
                                         ),
                                       ],

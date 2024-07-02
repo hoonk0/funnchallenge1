@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:funnchallenge/login/join_new_member.dart';
+import 'package:funnchallenge/login/no_member.dart';
 import 'package:funnchallenge/screen/user_information.dart';
 
 
@@ -49,35 +50,31 @@ class _RouteLoginState extends State<RouteLogin> {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20.0),
             ),
-            content: Container(
+            content: SizedBox(
               height: 152,
               child: Center(
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Text(
+                    const Text(
                         '아이디 찾기',
                         style: TS.s16w700(colorWhite)
                     ),
 
-                    SizedBox(width: 15),
+                    const SizedBox(width: 15),
 
-                    Text(
+                    const Text(
                       '해당 이름 또는 이메일로 등록한 계정이 없습니다',
                       style: TS.s10w600(colorWhite)
                     ),
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                     Row(
                       children: [
                         Expanded(
                           child: ElevatedButton(
-                            child: Text(
-                                '회원가입 하기',
-                              style: TS.s14w700(colorWhite),
-                            ),
                             style: ElevatedButton.styleFrom(
                               foregroundColor: Colors.white,
-                              backgroundColor: Color(0xffE41745),
+                              backgroundColor: const Color(0xffE41745),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(10),
                                 )
@@ -88,20 +85,20 @@ class _RouteLoginState extends State<RouteLogin> {
                                 MaterialPageRoute(builder: (context) => const JoinNewMember()),
                               );
                             },
+                            child: const Text(
+                                '회원가입 하기',
+                              style: TS.s14w700(colorWhite),
+                            ),
                           ),
                         ),
 
-                        SizedBox(width: 15),
+                        const SizedBox(width: 15),
 
                         Expanded(
                           child: ElevatedButton(
-                            child: Text(
-                                '다시 찾기',
-                            style: TS.s14w700(colorWhite),
-                            ),
                             style: ElevatedButton.styleFrom(
                               foregroundColor: Colors.white,
-                              backgroundColor: Color(0xffE41745),
+                              backgroundColor: const Color(0xffE41745),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10),
                               )
@@ -109,6 +106,10 @@ class _RouteLoginState extends State<RouteLogin> {
                             onPressed: () {
                               Navigator.of(context).pop();
                             },
+                            child: const Text(
+                                '다시 찾기',
+                            style: TS.s14w700(colorWhite),
+                            ),
                           ),
                         ),
                       ],
@@ -129,44 +130,40 @@ class _RouteLoginState extends State<RouteLogin> {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20.0),
             ),
-            content: Container(
+            content: SizedBox(
               height: 252,
               child: Center(
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Text(
+                    const Text(
                         '아이디 찾기',
                         style: TS.s16w700(colorWhite)
                     ),
 
-                    SizedBox(width: 15),
+                    const SizedBox(width: 15),
 
-                    Text(
+                    const Text(
                         '회원님의 아이디는 아래와 같습니다',
                         style: TS.s10w600(colorWhite)
                     ),
 
-                    SizedBox(height: 32),
+                    const SizedBox(height: 32),
 
-                    Text(
+                    const Text(
                         'daba@gmail.com',
                         style: TS.s24w900(colorVolcano600)
                     ),
 
-                    SizedBox(height: 32),
+                    const SizedBox(height: 32),
 
 
-                    Container(
+                    SizedBox(
                         width: double.infinity, //
                       child: ElevatedButton(
-                        child: Text(
-                          '확인',
-                          style: TS.s14w700(colorWhite),
-                        ),
                         style: ElevatedButton.styleFrom(
                             foregroundColor: Colors.white,
-                            backgroundColor: Color(0xffE41745),
+                            backgroundColor: const Color(0xffE41745),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10),
                             )
@@ -175,6 +172,10 @@ class _RouteLoginState extends State<RouteLogin> {
                           Navigator.of(context).pop();
 
                         },
+                        child: const Text(
+                          '확인',
+                          style: TS.s14w700(colorWhite),
+                        ),
                       ),
                     ),
 
@@ -200,56 +201,52 @@ class _RouteLoginState extends State<RouteLogin> {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20.0),
             ),
-            content: Container(
+            content: SizedBox(
               height: 152,
               child: Center(
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Text(
+                    const Text(
                         '비밀번호 찾기',
                         style: TS.s16w700(colorWhite)
                     ),
 
-                    SizedBox(width: 15),
+                    const SizedBox(width: 15),
 
-                    Text(
+                    const Text(
                         '존재하지 않는 아이디입니다',
                         style: TS.s10w600(colorWhite)
                     ),
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                     Row(
                       children: [
                         Expanded(
                           child: ElevatedButton(
-                            child: Text(
+                            style: ElevatedButton.styleFrom(
+                                foregroundColor: Colors.white,
+                                backgroundColor: const Color(0xffE41745),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                )
+                            ),
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            },
+                            child: const Text(
                               '아이디 찾기',
                               style: TS.s14w700(colorWhite),
                             ),
-                            style: ElevatedButton.styleFrom(
-                                foregroundColor: Colors.white,
-                                backgroundColor: Color(0xffE41745),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                )
-                            ),
-                            onPressed: () {
-                              Navigator.of(context).pop();
-                            },
                           ),
                         ),
 
-                        SizedBox(width: 15),
+                        const SizedBox(width: 15),
 
                         Expanded(
                           child: ElevatedButton(
-                            child: Text(
-                              '다시 찾기',
-                              style: TS.s14w700(colorWhite),
-                            ),
                             style: ElevatedButton.styleFrom(
                                 foregroundColor: Colors.white,
-                                backgroundColor: Color(0xffE41745),
+                                backgroundColor: const Color(0xffE41745),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(10),
                                 )
@@ -257,6 +254,10 @@ class _RouteLoginState extends State<RouteLogin> {
                             onPressed: () {
                               Navigator.of(context).pop();
                             },
+                            child: const Text(
+                              '다시 찾기',
+                              style: TS.s14w700(colorWhite),
+                            ),
                           ),
                         ),
                       ],
@@ -277,36 +278,32 @@ class _RouteLoginState extends State<RouteLogin> {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20.0),
             ),
-            content: Container(
+            content: SizedBox(
               height: 252,
               child: Center(
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Text(
+                    const Text(
                         '비밀번호 찾기',
                         style: TS.s16w700(colorWhite)
                     ),
 
-                    SizedBox(width: 15),
+                    const SizedBox(width: 15),
 
-                    Text(
+                    const Text(
                         '임시 비밀번호가 전송되었습니다',
                         style: TS.s10w600(colorWhite)
                     ),
 
-                    SizedBox(height: 17),
+                    const SizedBox(height: 17),
 
-                    Container(
+                    SizedBox(
                       width: double.infinity, //
                       child: ElevatedButton(
-                        child: Text(
-                          '확인',
-                          style: TS.s14w700(colorWhite),
-                        ),
                         style: ElevatedButton.styleFrom(
                             foregroundColor: Colors.white,
-                            backgroundColor: Color(0xffE41745),
+                            backgroundColor: const Color(0xffE41745),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10),
                             )
@@ -315,6 +312,10 @@ class _RouteLoginState extends State<RouteLogin> {
                           Navigator.of(context).pop();
 
                         },
+                        child: const Text(
+                          '확인',
+                          style: TS.s14w700(colorWhite),
+                        ),
                       ),
                     ),
 
@@ -354,7 +355,7 @@ class _RouteLoginState extends State<RouteLogin> {
                 icon: const Icon(Icons.menu),
                 color: colorWhite,
               ),
-              SizedBox(width: 30)
+              const SizedBox(width: 30)
             ],
           ),
         ],
@@ -369,7 +370,7 @@ class _RouteLoginState extends State<RouteLogin> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   const SizedBox(height: 160),
-                  Text(
+                  const Text(
                     '로그인',
                     style: TS.s16w700(colorWhite),
                   ),
@@ -384,7 +385,7 @@ class _RouteLoginState extends State<RouteLogin> {
                         padding: const EdgeInsets.symmetric(horizontal: 47),
                         child: TextField(
                           controller: tecId,
-                          style: TS.s12w400(colorWhite),
+                          style: const TS.s12w400(colorWhite),
                           decoration: const InputDecoration(
                             hintText: '아이디',
                             hintStyle: TS.s12w400(colorWhite),
@@ -407,7 +408,7 @@ class _RouteLoginState extends State<RouteLogin> {
                         padding: const EdgeInsets.symmetric(horizontal: 47),
                         child: TextField(
                           controller: tecId,
-                          style: TS.s12w400(colorWhite),
+                          style: const TS.s12w400(colorWhite),
                           decoration: const InputDecoration(
                             hintText: '비밀번호',
                             hintStyle: TS.s12w400(colorWhite),
@@ -442,7 +443,7 @@ class _RouteLoginState extends State<RouteLogin> {
                                         shape: RoundedRectangleBorder(
                                           borderRadius: BorderRadius.circular(20.0),
                                         ),
-                                        content: Container(
+                                        content: const SizedBox(
                                           height: 152,
                                           width: 353, // 원하는 높이로 설정
                                           child: Center(
@@ -455,7 +456,7 @@ class _RouteLoginState extends State<RouteLogin> {
                                         actions: <Widget>[
                                           Container(
                                             width: double.infinity, // 버튼의 너비를 다이얼로그 너비에 맞추기
-                                            decoration: BoxDecoration(
+                                            decoration: const BoxDecoration(
                                               borderRadius: BorderRadius.only(
                                                 bottomLeft: Radius.circular(10.0),
                                                 bottomRight: Radius.circular(10.0),
@@ -464,14 +465,14 @@ class _RouteLoginState extends State<RouteLogin> {
                                               ),
                                             ),
                                             child: ElevatedButton(
-                                              child: Text('확인'),
                                               style: ElevatedButton.styleFrom(
                                                 foregroundColor: Colors.white,
-                                                backgroundColor: Color(0xffE41745), // 텍스트 색상
+                                                backgroundColor: const Color(0xffE41745), // 텍스트 색상
                                               ),
                                               onPressed: () {
                                                 Navigator.of(context).pop();
                                               },
+                                              child: const Text('확인'),
                                             ),
                                           ),
                                         ],
@@ -522,19 +523,19 @@ class _RouteLoginState extends State<RouteLogin> {
                               ],
                             ),
                           ),
-                          SizedBox(width: 16),
-                          Text(
+                          const SizedBox(width: 16),
+                          const Text(
                             '|',
                             style: TS.s12w400(colorWhite),
                           ),
-                          SizedBox(width: 16),
+                          const SizedBox(width: 16),
                           GestureDetector(
                             onTap: () {
                               showDialog(
                                 context: context,
                                 builder: (BuildContext context) {
                                   return AlertDialog(
-                                    title: Center(
+                                    title: const Center(
                                       child: Text('아이디 찾기',
                                         style: TS.s16w700(colorWhite),),
                                     ),
@@ -544,21 +545,21 @@ class _RouteLoginState extends State<RouteLogin> {
                                     ),
                                     content: Padding(
                                       padding: const EdgeInsets.all(20.0),
-                                      child: Container(
+                                      child: SizedBox(
                                         height: 262, // 원하는 높이로 설정
                                         child: Center(
                                           child: Column(
                                             children: [
-                                              Text(
+                                              const Text(
                                                   '아이디는 가입 시 입력하신 이메일을 통해 찾을 수 있습니다',
                                                   style: TS.s10w400(colorWhite)
                                               ),
 
-                                              SizedBox(height: 20),
+                                              const SizedBox(height: 20),
 
                                               TextField(
                                                 controller: tecName,
-                                                style: TS.s12w400(colorWhite),
+                                                style: const TS.s12w400(colorWhite),
                                                 decoration: const InputDecoration(
                                                   hintText: '이름',
                                                   hintStyle: TS.s12w400(colorGray500),
@@ -574,7 +575,7 @@ class _RouteLoginState extends State<RouteLogin> {
                                                 ),
                                               ),
 
-                                              SizedBox(height: 20),
+                                              const SizedBox(height: 20),
 
 
                                               /*
@@ -658,7 +659,7 @@ class _RouteLoginState extends State<RouteLogin> {
                                       Container(
                                         width: double.infinity, // 버튼의 너비를 다이얼로그 너비에 맞추기
 
-                                        decoration: BoxDecoration(
+                                        decoration: const BoxDecoration(
                                           borderRadius: BorderRadius.only(
                                             bottomLeft: Radius.circular(10.0),
                                             bottomRight: Radius.circular(10.0),
@@ -667,18 +668,18 @@ class _RouteLoginState extends State<RouteLogin> {
                                           ),
                                         ),
                                         child: ElevatedButton(
-                                          child: Text('아이디 찾기'),
                                           style: ElevatedButton.styleFrom(
                                             shape: RoundedRectangleBorder(
                                               borderRadius: BorderRadius.circular(10),
                                             ),
                                             foregroundColor: Colors.white,
-                                            backgroundColor: Color(0xffE41745), // 텍스트 색상
+                                            backgroundColor: const Color(0xffE41745), // 텍스트 색상
                                           ),
                                           onPressed: () {
                                             Navigator.of(context).pop();
                                             _confirmId();
                                           },
+                                          child: const Text('아이디 찾기'),
                                         ),
                                       ),
                                     ],
@@ -699,13 +700,13 @@ class _RouteLoginState extends State<RouteLogin> {
                             ),
                           ),
 
-                          SizedBox(width: 16),
+                          const SizedBox(width: 16),
 
-                          Text(
+                          const Text(
                             '|',
                             style: TS.s12w400(colorWhite),
                           ),
-                          SizedBox(width: 16),
+                          const SizedBox(width: 16),
                           GestureDetector(
                             onTap: () {
 
@@ -713,7 +714,7 @@ class _RouteLoginState extends State<RouteLogin> {
                                 context: context,
                                 builder: (BuildContext context) {
                                   return AlertDialog(
-                                    title: Center(
+                                    title: const Center(
                                       child: Text('비밀번호 찾기',
                                         style: TS.s16w700(colorWhite),),
                                     ),
@@ -723,25 +724,25 @@ class _RouteLoginState extends State<RouteLogin> {
                                     ),
                                     content: Padding(
                                       padding: const EdgeInsets.all(20.0),
-                                      child: Container(
+                                      child: SizedBox(
                                         height: 223, // 원하는 높이로 설정
                                         child: Center(
                                           child: Column(
                                             children: [
-                                              Text(
+                                              const Text(
                                                   '아이디를 입력하시면 회원가입 시 입력하신 이메일로',
                                                   style: TS.s10w400(colorWhite)
                                               ),
-                                              Text(
+                                              const Text(
                                                   '임시비밀번호를 보내드립니다',
                                                   style: TS.s10w400(colorWhite)
                                               ),
 
-                                              SizedBox(height: 20),
+                                              const SizedBox(height: 20),
 
                                               TextField(
                                                 controller: tecId,
-                                                style: TS.s12w400(colorWhite),
+                                                style: const TS.s12w400(colorWhite),
                                                 decoration: const InputDecoration(
                                                   hintText: '아이디',
                                                   hintStyle: TS.s12w400(colorGray500),
@@ -767,7 +768,7 @@ class _RouteLoginState extends State<RouteLogin> {
                                       Container(
                                         width: double.infinity, // 버튼의 너비를 다이얼로그 너비에 맞추기
 
-                                        decoration: BoxDecoration(
+                                        decoration: const BoxDecoration(
                                           borderRadius: BorderRadius.only(
                                             bottomLeft: Radius.circular(10.0),
                                             bottomRight: Radius.circular(10.0),
@@ -776,18 +777,18 @@ class _RouteLoginState extends State<RouteLogin> {
                                           ),
                                         ),
                                         child: ElevatedButton(
-                                          child: Text('임시 비밀번호 전송'),
                                           style: ElevatedButton.styleFrom(
                                             shape: RoundedRectangleBorder(
                                               borderRadius: BorderRadius.circular(10),
                                             ),
                                             foregroundColor: Colors.white,
-                                            backgroundColor: Color(0xffE41745), // 텍스트 색상
+                                            backgroundColor: const Color(0xffE41745), // 텍스트 색상
                                           ),
                                           onPressed: () {
                                             Navigator.of(context).pop();
                                             _confirmPw();
                                           },
+                                          child: const Text('임시 비밀번호 전송'),
                                         ),
                                       ),
                                     ],
@@ -848,6 +849,208 @@ class _RouteLoginState extends State<RouteLogin> {
                               padding: const EdgeInsets.symmetric(horizontal: 47),
                               child: ElevatedButton(
                                 onPressed: () {
+
+                                  showDialog(
+                                    context: context,
+                                    builder: (BuildContext context) {
+                                      return AlertDialog(
+                                        backgroundColor: Colors.black,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(20.0),
+                                        ),
+                                        content: SizedBox(
+                                          height: 550,
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.min,
+                                            crossAxisAlignment: CrossAxisAlignment.start, // 텍스트 왼쪽 정렬
+                                            children: [
+                                              const SizedBox(height: 49),
+                                              const Text(
+                                                '비회원 로그인',
+                                                style: TS.s16w700(colorWhite),
+                                              ),
+                                              const SizedBox(height: 42), // 'width'를 'height'로 수정
+
+                                              Column(
+                                                crossAxisAlignment: CrossAxisAlignment.center,
+                                                children: [
+
+                                                  Text(
+                                                    '비회원 로그인 시 알아두세요',
+                                                    style: TextStyle(
+                                                      fontSize: 9,
+                                                      fontWeight: FontWeight.w600,
+                                                      color: colorWhite,
+                                                    ),
+                                                  ),
+                                                  Text(
+                                                    '비회원 로그인 이용은 만 14세 이상 사용자만 가능합니다',
+                                                    style: TextStyle(
+                                                      fontSize: 9,
+                                                      fontWeight: FontWeight.w600,
+                                                      color: colorWhite,
+                                                    ),
+                                                  ),
+                                                  Text(
+                                                    '포인트 적립, 리포트 제공 등 일반회원 혜택을 받으실 수 없습니다',
+                                                    style: TextStyle(
+                                                      fontSize: 9,
+                                                      fontWeight: FontWeight.w600,
+                                                      color: colorWhite,
+                                                    ),
+                                                  ),
+
+                                                ],
+                                              ),
+
+
+                                              const SizedBox(height: 42),
+                                              Row(
+                                                children: [
+                                                  Checkbox(value: false, onChanged: (value) {}), // 체크박스 추가
+                                                  const Text(
+                                                    '개인정보처리방침(필수)',
+                                                    style: TS.s12w700(colorWhite),
+                                                  ),
+                                                ],
+                                              ),
+                                              const SizedBox(height: 19),
+                                              Row(
+                                                children: [
+                                                  Checkbox(value: false, onChanged: (value) {}), // 체크박스 추가
+                                                  const Text(
+                                                    '이벤트/혜택 알림 수신 동의(선택)',
+                                                    style: TS.s12w700(colorWhite),
+                                                  ),
+                                                ],
+                                              ),
+                                              const SizedBox(height: 31),
+
+                                              const Divider(color: Colors.grey),
+                                              // 가로선 추가
+                                              const SizedBox(height: 31),
+
+                                              Row(
+                                                children: [
+                                                  Checkbox(value: false, onChanged: (value) {}), // 체크박스 추가
+                                                  const Column(
+                                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                                    children: [
+                                                      Text(
+                                                        '전체동의',
+                                                        style: TS.s12w700(colorWhite),
+                                                      ),
+                                                      Text(
+                                                        '(선택) 이벤트/선택알림을 포함하여 모두 동의합니다',
+                                                        style: TS.s10w400(colorWhite),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ],
+                                              ),
+                                              const SizedBox(height: 34),
+                                              Row(
+                                                children: [
+                                                  Expanded(
+                                                    child: ElevatedButton(
+                                                      style: ElevatedButton.styleFrom(
+                                                        foregroundColor: Colors.white,
+                                                        backgroundColor: const Color(0xffE41745),
+                                                        shape: RoundedRectangleBorder(
+                                                          borderRadius: BorderRadius.circular(10),
+                                                        ),
+                                                      ),
+                                                      onPressed: () {
+                                                        Navigator.of(context).pop();
+
+                                                        showDialog(
+                                                          context: context,
+                                                          builder: (BuildContext context) {
+                                                            return AlertDialog(
+                                                              backgroundColor: Colors.black,
+                                                              shape: RoundedRectangleBorder(
+                                                                borderRadius: BorderRadius.circular(20.0),
+                                                              ),
+                                                              content: SizedBox(
+                                                                height: 350,
+                                                                child: Column(
+                                                                  mainAxisSize: MainAxisSize.min,
+                                                                  crossAxisAlignment: CrossAxisAlignment.center, // 텍스트 왼쪽 정렬
+                                                                  children: [
+                                                                    const SizedBox(height: 49),
+                                                                    const Text(
+                                                                      '이벤트/혜택 알림 수신 동의',
+                                                                      style: TS.s16w700(colorWhite),
+                                                                    ),
+                                                                    const SizedBox(height: 42), // 'width'를 'height'로 수정
+
+                                                                    Column(
+                                                                      crossAxisAlignment: CrossAxisAlignment.center,
+                                                                      children: [
+
+                                                                        Text(
+                                                                          '펀앤챌린지(Fun&Challenge)에서는 고객이 수집 및 이용\n에 동의한 개인정보를 활용하여 전자적 전송매체(Push 알\n림/e-mail등 다양한 전송매체)를 통해 이벤트 / 혜택에 \n대한 개인 맞춤형 광고 정보를 전송 할 수 있습니다 \n\n\n회원님은 광고수신에 대한 동의를 거부하실 권리가 있으며, 동의 거부 시에도 서비스의 이용이 가능합니다',
+                                                                          style: TextStyle(
+                                                                            fontSize: 10,
+                                                                            fontWeight: FontWeight.w600,
+                                                                            color: colorWhite,
+                                                                          ),
+                                                                        ),
+
+                                                                      ],
+                                                                    ),
+
+                                                                    const SizedBox(height: 34),
+                                                                    Row(
+                                                                      children: [
+                                                                        Expanded(
+                                                                          child: ElevatedButton(
+                                                                            style: ElevatedButton.styleFrom(
+                                                                              foregroundColor: Colors.white,
+                                                                              backgroundColor: const Color(0xffE41745),
+                                                                              shape: RoundedRectangleBorder(
+                                                                                borderRadius: BorderRadius.circular(10),
+                                                                              ),
+                                                                            ),
+                                                                            onPressed: () {
+                                                                              Navigator.of(context).push(MaterialPageRoute(builder: (context) => NoMember()));
+                                                                            },
+                                                                            child: const Text(
+                                                                              '다음',
+                                                                              style: TS.s14w700(colorWhite),
+                                                                            ),
+                                                                          ),
+                                                                        ),
+                                                                      ],
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                            );
+                                                          },
+                                                        );
+
+
+
+                                                      },
+                                                      child: const Text(
+                                                        '다음',
+                                                        style: TS.s14w700(colorWhite),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                  );
+
+
+
+
 
                                 },
                                 style: ElevatedButton.styleFrom(
