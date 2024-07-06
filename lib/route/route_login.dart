@@ -24,9 +24,13 @@ class _RouteLoginState extends State<RouteLogin> {
   String? selectedMonth;
   String? selectedDay;
 
-  List<String> years = List.generate(50, (index) => (2024 - index).toString());
-  List<String> months = List.generate(12, (index) => (index + 1).toString().padLeft(2, '0'));
-  List<String> days = List.generate(31, (index) => (index + 1).toString().padLeft(2, '0'));
+  final ValueNotifier<String?> selectedYearNotifier = ValueNotifier<String?>(null);
+  final ValueNotifier<String?> selectedMonthNotifier = ValueNotifier<String?>(null);
+  final ValueNotifier<String?> selectedDayNotifier = ValueNotifier<String?>(null);
+
+  final List<String> years = List<String>.generate(151, (int index) => (1900 + index).toString());
+  final List<String> months = List<String>.generate(12, (int index) => (index + 1).toString().padLeft(2, '0'));
+  final List<String> days = List<String>.generate(31, (int index) => (index + 1).toString().padLeft(2, '0'));
 
   @override
   void initState() {
@@ -38,6 +42,10 @@ class _RouteLoginState extends State<RouteLogin> {
     tecId.dispose();
     tecPw.dispose();
     tecName.dispose();
+
+    selectedYearNotifier.dispose();
+    selectedMonthNotifier.dispose();
+    selectedDayNotifier.dispose();
 
     super.dispose();
   }
@@ -579,108 +587,122 @@ class _RouteLoginState extends State<RouteLogin> {
 
                                               const SizedBox(height: 20),
 
-                                              Row(
-                                                children: [
-                                                  SizedBox(
-                                                    width: 15.w,
-                                                    child: const Text(
+
+                                              Center(
+                                                child: Row(
+                                                  mainAxisAlignment: MainAxisAlignment.center,
+                                                  children: [
+
+                                                    Text(
                                                       '생년월일',
                                                       style: TS.s12w700(colorWhite),
                                                     ),
-                                                  ),
 
-                                                  Expanded(
-                                                    child: Container(
-                                                      decoration: BoxDecoration(
-                                                        border: Border.all(color: Colors.white),
-                                                        borderRadius: BorderRadius.circular(10.0),
-
-                                                      ),
-                                                      child: DropdownButton<String>(
-                                                        value: years.contains(selectedYear) ? selectedYear : null,
-                                                        hint: const Text('  연도', style: TS.s10w400(colorWhite)),
-                                                        isExpanded: true,
-                                                        items: years.map((String value) {
-                                                          return DropdownMenuItem<String>(
-                                                            value: value,
-                                                            child: Padding(
-                                                              padding: const EdgeInsets.all(1.0),
-                                                              child: Text(value, style: const TS.s10w400(colorWhite)),
-                                                            ),
-                                                          );
-                                                        }).toList(),
-                                                        onChanged: (newValue) {
-                                                          setState(() {
-                                                            selectedYear = newValue;
-                                                          });
-                                                        },
-                                                        dropdownColor: Colors.grey[800], // 드롭다운 배경 색상
+                                                    SizedBox(width: 10,),
+                                                    // Year Dropdown
+                                                    Expanded(
+                                                      child: Container(
+                                                        decoration: BoxDecoration(
+                                                          border: Border.all(color: Colors.white),
+                                                          borderRadius: BorderRadius.circular(10.0),
+                                                        ),
+                                                        child:
+                                                        ValueListenableBuilder<String?>(
+                                                          valueListenable: selectedYearNotifier,
+                                                          builder: (context, selectedYear, child) {
+                                                            return DropdownButton<String>(
+                                                              value: years.contains(selectedYear) ? selectedYear : null,
+                                                              hint: const Text('  연도', style: TS.s11w400(colorWhite)),
+                                                              isExpanded: true,
+                                                              items: years.map((String value) {
+                                                                return DropdownMenuItem<String>(
+                                                                  value: value,
+                                                                  child: Padding(
+                                                                    padding: const EdgeInsets.all(1.0),
+                                                                    child: Text(value, style: const TS.s11w400(colorWhite)),
+                                                                  ),
+                                                                );
+                                                              }).toList(),
+                                                              onChanged: (newValue) {
+                                                                selectedYearNotifier.value = newValue;
+                                                              },
+                                                              dropdownColor: Colors.grey[800], // 드롭다운 배경 색상
+                                                            );
+                                                          },
+                                                        ),
                                                       ),
                                                     ),
-                                                  ),
-                                                  const SizedBox(width: 8),
-                                                  Expanded(
-                                                    child: Container(
-                                                      decoration: BoxDecoration(
-                                                        border: Border.all(color: Colors.white),
-                                                        borderRadius: BorderRadius.circular(10.0),
-                                                      ),
-                                                      child: DropdownButton<String>(
-                                                        value: selectedMonth,
-                                                        hint: const Text('  월', style: TS.s10w400(colorWhite)),
-                                                        isExpanded: true,
-                                                        items: months.map((String value) {
-                                                          return DropdownMenuItem<String>(
-                                                            value: value,
-                                                            child: Padding(
-                                                              padding: const EdgeInsets.all(6.0),
-                                                              child: Text(value, style: const TS.s10w400(colorWhite)),
-                                                            ),
-                                                          );
-                                                        }).toList(),
-                                                        onChanged: (newValue) {
-                                                          setState(() {
-                                                            selectedMonth = newValue;
-                                                          });
-                                                        },
-                                                        dropdownColor: Colors.grey[800], // 드롭다운 배경 색상
-                                                      ),
-                                                    ),
-                                                  ),
-                                                  const SizedBox(width: 8),
-                                                  Expanded(
-                                                    child: Container(
-                                                      decoration: BoxDecoration(
-                                                        border: Border.all(color: Colors.white),
-                                                        borderRadius: BorderRadius.circular(10.0),
-
-                                                      ),
-                                                      child: DropdownButton<String>(
-                                                        value: days.contains(selectedDay) ? selectedDay : null,
-                                                        hint: const Text('  일', style: TS.s10w400(colorWhite)),
-                                                        isExpanded: true,
-                                                        items: days.map((String value) {
-                                                          return DropdownMenuItem<String>(
-                                                            value: value,
-                                                            child: Padding(
-                                                              padding: const EdgeInsets.all(6.0),
-                                                              child: Text(value, style: const TS.s12w400(colorWhite)),
-                                                            ),
-                                                          );
-                                                        }).toList(),
-                                                        onChanged: (newValue) {
-                                                          setState(() {
-                                                            selectedDay = newValue;
-                                                          });
-                                                        },
-                                                        dropdownColor: Colors.grey[800], // 드롭다운 배경 색상
+                                                    SizedBox(width: 10),
+                                                    // Month Dropdown
+                                                    Expanded(
+                                                      child: Container(
+                                                        decoration: BoxDecoration(
+                                                          border: Border.all(color: Colors.white),
+                                                          borderRadius: BorderRadius.circular(10.0),
+                                                        ),
+                                                        child: ValueListenableBuilder<String?>(
+                                                          valueListenable: selectedMonthNotifier,
+                                                          builder: (context, selectedMonth, child) {
+                                                            return DropdownButton<String>(
+                                                              value: months.contains(selectedMonth) ? selectedMonth : null,
+                                                              hint: const Text('  월', style: TS.s11w400(colorWhite)),
+                                                              isExpanded: true,
+                                                              items: months.map((String value) {
+                                                                return DropdownMenuItem<String>(
+                                                                  value: value,
+                                                                  child: Padding(
+                                                                    padding: const EdgeInsets.all(1.0),
+                                                                    child: Text(value, style: const TS.s11w400(colorWhite)),
+                                                                  ),
+                                                                );
+                                                              }).toList(),
+                                                              onChanged: (newValue) {
+                                                                selectedMonthNotifier.value = newValue;
+                                                              },
+                                                              dropdownColor: Colors.grey[800], // 드롭다운 배경 색상
+                                                            );
+                                                          },
+                                                        ),
                                                       ),
                                                     ),
-                                                  ),
-
-
-                                                ],
+                                                    SizedBox(width: 10),
+                                                    // Day Dropdown
+                                                    Expanded(
+                                                      child: Container(
+                                                        decoration: BoxDecoration(
+                                                          border: Border.all(color: Colors.white),
+                                                          borderRadius: BorderRadius.circular(10.0),
+                                                        ),
+                                                        child: ValueListenableBuilder<String?>(
+                                                          valueListenable: selectedDayNotifier,
+                                                          builder: (context, selectedDay, child) {
+                                                            return DropdownButton<String>(
+                                                              value: days.contains(selectedDay) ? selectedDay : null,
+                                                              hint: const Text('  일', style: TS.s11w400(colorWhite)),
+                                                              isExpanded: true,
+                                                              items: days.map((String value) {
+                                                                return DropdownMenuItem<String>(
+                                                                  value: value,
+                                                                  child: Padding(
+                                                                    padding: const EdgeInsets.all(1.0),
+                                                                    child: Text(value, style: const TS.s11w400(colorWhite)),
+                                                                  ),
+                                                                );
+                                                              }).toList(),
+                                                              onChanged: (newValue) {
+                                                                selectedDayNotifier.value = newValue;
+                                                              },
+                                                              dropdownColor: Colors.grey[800], // 드롭다운 배경 색상
+                                                            );
+                                                          },
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
                                               ),
+
+
 
 
                                             ],

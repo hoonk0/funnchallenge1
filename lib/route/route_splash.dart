@@ -13,11 +13,13 @@ class RouteSplash extends StatefulWidget {
 class _RouteSplashState extends State<RouteSplash> {
   @override
   void initState() {
+
     super.initState();
     // initState에서 다이얼로그를 표시하도록 설정합니다.
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _showDialog();
     });
+
   }
 
   void _showDialog() {
